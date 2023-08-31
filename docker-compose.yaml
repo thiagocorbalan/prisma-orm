@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+    prisma_orm_db:
+      build:
+        context: ./database
+      image: prisma-orm/database
+      container_name: prisma_orm_db
+      volumes:
+      - prisma_orm_db:/var/lib/postgresql/data
+      ports:
+      - "5432:5432"
+      restart:
+        always
+
+networks:
+  default:
+    name: poc
+
+volumes:
+  prisma_orm_db:

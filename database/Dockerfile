@@ -1,0 +1,6 @@
+FROM postgres:15 as base
+WORKDIR /
+EXPOSE 5432
+ENV POSTGRES_DB prisma_db
+ENV POSTGRES_USER prismauser
+ENV POSTGRES_PASSWORD prismapassword
