@@ -9,3 +9,13 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Product {
+  id          String    @id     @default(uuid())
+  name        String
+  bar_code    String    @unique
+  price       Decimal
+  created_at  DateTime  @default(now())
+
+  @@map("products") // Rename table name to database
+}
