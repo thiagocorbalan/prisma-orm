@@ -1,14 +1,17 @@
 import { Router } from "express";
-import { CreateProductController } from "./controllers/CreateProductController";
 import { CreateCategoryController } from "./controllers/CreateCategoryController";
+import { CreateProductCategoryController } from './controllers/CreateProductCategoryController';
+import { CreateProductController } from "./controllers/CreateProductController";
 
 const router = Router();
 
 const createProduct = new CreateProductController();
 const createCategory = new CreateCategoryController();
+const createProductCategory = new CreateProductCategoryController();
 
 router.get('/', (req, res) => res.send({ msg: 'Hello World!'}));
 router.post('/product', createProduct.handle);
 router.post('/category', createCategory.handle);
+router.post('/categoryProduct', createProductCategory.handle);
 
 export { router };
